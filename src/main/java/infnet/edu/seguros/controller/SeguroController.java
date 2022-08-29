@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import infnet.edu.seguros.model.domain.Seguro;
+import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.service.SeguroService;
 
 @Controller
@@ -24,16 +26,17 @@ public class SeguroController {
 	}
 	
 	@GetMapping(value = "/seguro/listar")
-	public String ListarSeguros(Model model){
+	public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
 		mensagem = "Listagem realizada";
-		model.addAttribute("listagem", service.GetAll());
+		model.addAttribute("listagem", service.GetAll(usu));
 		model.addAttribute("msg", mensagem);
 		
 		return "seguro/lista";
 	}
 	
 	@PostMapping(value = "/seguro/incluir")
-	public String IncluirSeguro(Seguro seguro) {
+	public String IncluirSeguro(Seguro seguro, @SessionAttribute("user") Usuario usu) {
+		seguro.setUsuario(usu);
 		service.IncluirSeguro(seguro);
 		
 		return "redirect:/seguro/listar";

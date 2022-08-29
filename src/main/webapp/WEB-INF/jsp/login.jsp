@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +8,15 @@
 	<title>App - Cadastro</title>
 </head>
 <body>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container mt-3">
 		<h2>Autenticação</h2>
 
-		<div class="alert alert-success">
-			<strong>Atenção!</strong> ${msg}
-		</div>		
+		<c:if test="${not empty msg}">
+			<div class="alert alert-success">
+				<strong>Atenção!</strong> ${msg}
+			</div>
+		</c:if>
 
 	  <form action="/login" method="post">
 	    <div class="mb-3 mt-3">

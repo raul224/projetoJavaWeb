@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,9 @@
 	<title>App Seguros</title>
 </head>
 <body>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">
-		<h3>Cadastro seguros</h3>
+		<h3>Bem vindo, ${user.nome}</h3>
 		
 		<h5>Cadastro de <a href="/seguro/listar">Seguro</a></h5>
 	</div>

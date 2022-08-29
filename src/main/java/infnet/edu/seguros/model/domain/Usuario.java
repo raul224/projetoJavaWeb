@@ -1,9 +1,13 @@
 package infnet.edu.seguros.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,9 @@ public class Usuario {
 	public String email;
 	public String senha;
 	public boolean admin;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Seguro> seguros;
 	
 	public Integer getId() {
 		return id;
@@ -47,6 +54,12 @@ public class Usuario {
 	}
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+	public List<Seguro> getSeguros() {
+		return seguros;
+	}
+	public void setSeguros(List<Seguro> seguros) {
+		this.seguros = seguros;
 	}
 	
 	

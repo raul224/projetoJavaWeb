@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +21,9 @@ public class Seguro {
 	private float valorContrato;
 	private float valorIndenizacao;
 	private boolean ativo;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Seguro() {
 		// TODO Auto-generated constructor stub
@@ -51,6 +56,10 @@ public class Seguro {
     public float getValorIndenizacao() {
         return valorIndenizacao;
     }
+    
+    public Usuario getUsuario() {
+		return usuario;
+	}
 
     public boolean isAtivo() {
         return ativo;
@@ -80,6 +89,10 @@ public class Seguro {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String DadosSeguro(){

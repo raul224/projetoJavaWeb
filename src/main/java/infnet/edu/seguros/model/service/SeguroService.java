@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import infnet.edu.seguros.model.domain.Seguro;
+import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.repository.SeguroRepository;
 
 @Service
@@ -20,6 +21,10 @@ public class SeguroService{
 	
 	public List<Seguro> GetAll(){
 		return (List<Seguro>) seguroRepository.findAll();
+	}
+	
+	public List<Seguro> GetAll(Usuario usu){
+		return (List<Seguro>) seguroRepository.ObterLista(usu.getId());
 	}
 	
 	public void Excluir(Integer id) {

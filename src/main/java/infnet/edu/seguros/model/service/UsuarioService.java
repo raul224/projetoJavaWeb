@@ -12,8 +12,11 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuRepository;
 	
-	public boolean validar(String email, String senha) {
-		Usuario usu = usuRepository.autenticacao(email, senha);
-		return usu == null ? false : true;
+	public void incluir(Usuario usuario) {
+		usuRepository.save(usuario);
+	}
+	
+	public Usuario validar(String email, String senha) {
+		return usuRepository.autenticacao(email, senha);
 	}
 }

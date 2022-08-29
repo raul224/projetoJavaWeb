@@ -12,8 +12,8 @@
 <title>App - Lista</title>
 </head>
 <body>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<div class="container">	
+	<div class="container">
+		
 		  <h2>Cadastramentos de Seguros</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
@@ -34,7 +34,6 @@
 			        <th>Data fim</th>
 			        <th>Valor contrato</th>
 			        <th>Valor indenização</th>
-			        <th>Usuário</th>
 			      </tr>
 			    </thead>
 			    <tbody>
@@ -46,7 +45,6 @@
 			        <td>${a.dataFim}</td>
 			        <td>${a.valorContrato}</td>
 			        <td>${a.valorIndenizacao}</td>
-			        <td>${a.usuario.nome}</td>
 			        <td><a href="/seguro/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>

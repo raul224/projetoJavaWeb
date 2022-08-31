@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.repository.UsuarioRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UsuarioService {
 	
@@ -18,5 +21,13 @@ public class UsuarioService {
 	
 	public Usuario validar(String email, String senha) {
 		return usuRepository.autenticacao(email, senha);
+	}
+
+	public void excluir(Integer id){
+		usuRepository.deleteById(id);
+	}
+
+	public List<Usuario> listar(){
+		return (List<Usuario>) usuRepository.findAll();
 	}
 }

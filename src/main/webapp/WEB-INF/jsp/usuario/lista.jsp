@@ -12,6 +12,7 @@
 <title>App - Lista</title>
 </head>
 <body>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">
 		
 		  <h2>Cadastramentos de Seguros</h2>
@@ -20,39 +21,33 @@
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
-			  
-			<form action="/seguro" method="get">
-				<button type="submit" class="btn btn-gray">Novo</button>
-			</form>
 			
-			  <p>Listagem de Contratos Cadastrados:  ${listagem.size()}</p>        
+			  <p>Listagem de Usuarios Cadastrados:  ${listagem.size()}</p>
 			  <table class="table table-striped">
 			    <thead>
 			      <tr>
-			        <th>Numero contrato</th>
-			        <th>Data assinatura</th>
-			        <th>Data fim</th>
-			        <th>Valor contrato</th>
-			        <th>Valor indenização</th>
+			        <th>Id</th>
+			        <th>Nome</th>
+			        <th>E-mail</th>
+			        <th>Senha</th>
+			        <th>Admin</th>
 			      </tr>
 			    </thead>
 			    <tbody>
 			    
-			    <c:forEach var="a" items="${listagem}">
+			    <c:forEach var="u" items="${listagem}">
 			      <tr>
-			        <td>${a.numeroContrato}</td>
-			        <td>${a.dataAssinatura}</td>
-			        <td>${a.dataFim}</td>
-			        <td>${a.valorContrato}</td>
-			        <td>${a.valorIndenizacao}</td>
-			        <td><a href="/seguro/${a.numeroContrato}/excluir">Excluir</a></td>
+			        <td>${u.id}</td>
+			        <td>${u.nome}</td>
+			        <td>${u.email}</td>
+			        <td>${u.senha}</td>
+			        <td>${u.admin}</td>
+					<td>${u.seguros.size()}</td>
+			        <td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>
 			  </table>
-		
-	
-
 	</div>
 </body>
 </html>

@@ -9,7 +9,9 @@
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="/">Home</a></li>
 	      <c:if test="${not empty user}">
-	      	<li><a href="#">Usuário</a></li>
+			<c:if test="${user.admin}">
+			 <li><a href="usuario/listar">Usuário</a></li>
+			</c:if>
 	      	<li><a href="#">Cliente</a></li>
 	      	<li><a href="/seguro/listar">Seguro</a></li>
 	      	<li><a href="#">Seguro veicular</a></li>

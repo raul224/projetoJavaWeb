@@ -17,7 +17,7 @@
 	      	<li><a href="#">Seguro veicular</a></li>
 	      	<li><a href="#">Seguro domiciliar</a></li>
 	      	<li><a href="#">Seguro de vida</a></li>
-	      	<li><a href="#">Pedido</a></li>
+	      	<li><a href="#">Orçamento</a></li>
 	      </c:if>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">

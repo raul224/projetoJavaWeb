@@ -2,17 +2,12 @@ package infnet.edu.seguros.model.domain;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Seguros")
-public class Seguro {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Seguro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer numeroContrato;
@@ -94,22 +89,4 @@ public class Seguro {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	public String DadosSeguro(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(numeroContrato);
-        sb.append(";");
-        sb.append(dataAssinatura);
-        sb.append(";");
-        sb.append(dataFim);
-        sb.append(";");
-        sb.append(valorContrato);
-        sb.append(";");
-        sb.append(valorIndenizacao);
-        sb.append(";");
-        sb.append(ativo);
-        sb.append(";");
-
-        return sb.toString();
-    }
 }

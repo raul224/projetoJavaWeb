@@ -23,9 +23,9 @@ public class ClienteController {
     }
 
     @GetMapping(value = "/cliente/listar")
-    public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
+    public String ListarSeguros(Model model){
         mensagem = "Listagem realizada";
-        model.addAttribute("listagem", service.GetAllByUsu(usu));
+        model.addAttribute("listagem", service.GetAll());
         model.addAttribute("msg", mensagem);
         return "cliente/lista";
     }

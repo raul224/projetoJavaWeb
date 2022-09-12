@@ -1,7 +1,5 @@
 package infnet.edu.seguros.controller;
 
-import infnet.edu.seguros.model.domain.Endereco;
-import infnet.edu.seguros.model.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +14,7 @@ public class SeguroController {
 	private String mensagem;
 	@Autowired
 	private SeguroService service;
-	@Autowired
-	private EnderecoService enderecoService;
-	
+
 	@GetMapping(value = "/seguro")
 	public String TelaCadastro() {
 		return "seguro/cadastro";
@@ -27,7 +23,7 @@ public class SeguroController {
 	@GetMapping(value = "/seguro/listar")
 	public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
 		mensagem = "Listagem realizada";
-		model.addAttribute("listagem", service.GetAll(usu));
+		model.addAttribute("listagem", service.GetAllByUsu(usu));
 		model.addAttribute("msg", mensagem);
 		return "seguro/lista";
 	}
@@ -44,12 +40,5 @@ public class SeguroController {
 		service.Excluir(id);
 		mensagem = "Excluído com sucesso";
 		return "redirect:/seguro/listar";
-	}
-
-	@PostMapping(value = "/cep")
-	public String buscaCep(@RequestParam String cep, Model model){
-		Endereco end = enderecoService.buscarCep(cep);
-		model.addAttribute("endereco",end);
-		return "seguro";
 	}
 }

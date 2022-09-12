@@ -18,7 +18,7 @@
 			</div>
 		</form>
 
-		<form action="/seguro/incluir" method="post">
+		<form action="/seguro/domicilio/incluir" method="post">
 			<div class="form-group">
 				<label>Cep:</label>
 				<input type="text" value="${endereco.cep}" name="cep" class="form-control">

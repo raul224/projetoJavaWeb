@@ -23,7 +23,7 @@ public class SeguroService{
 		return (List<Seguro>) seguroRepository.findAll();
 	}
 	
-	public List<Seguro> GetAll(Usuario usu){
+	public List<Seguro> GetAllByUsu(Usuario usu){
 		return (List<Seguro>) seguroRepository.ObterLista(usu.getId());
 	}
 	

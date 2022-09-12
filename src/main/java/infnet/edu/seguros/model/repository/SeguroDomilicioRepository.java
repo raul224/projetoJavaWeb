@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface SeguroDomilicioRepository extends CrudRepository<SeguroDomicilio, Integer> {
-    @Query("from Seguro s where s.usuario.id = :idUsuario")
+    @Query("from SeguroDomicilio s where s.usuario.id = :idUsuario")
     List<Seguro> ObterLista(Integer idUsuario);
 }

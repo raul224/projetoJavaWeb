@@ -1,6 +1,5 @@
 package infnet.edu.seguros.model.service;
 
-import infnet.edu.seguros.model.domain.Seguro;
 import infnet.edu.seguros.model.domain.SeguroDomicilio;
 import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.repository.SeguroDomilicioRepository;
@@ -27,8 +26,8 @@ public class SeguroDomicilioService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Seguro> GetAllByUsu(Usuario usu){
-        return (List<Seguro>) repository.ObterLista(usu.getId());
+    public List<SeguroDomicilio> GetAllByUsu(Usuario usu){
+        return (List<SeguroDomicilio>) repository.ObterLista(usu.getId());
     }
 
     public void Excluir(Integer id) {

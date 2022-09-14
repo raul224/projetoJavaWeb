@@ -26,7 +26,11 @@ public class SeguroDomicilioController {
     @GetMapping(value = "/seguro/domicilio/listar")
     public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
         mensagem = "Listagem realizada";
-        model.addAttribute("listagem", service.GetAllByUsu(usu));
+        if(usu.admin){
+            model.addAttribute("listagem", service.obterLista());
+        } else {
+            model.addAttribute("listagem", service.GetAllByUsu(usu));
+        }
         model.addAttribute("msg", mensagem);
         return "domicilio/lista";
     }

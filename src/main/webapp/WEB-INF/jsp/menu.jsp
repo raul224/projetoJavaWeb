@@ -14,9 +14,9 @@
 			</c:if>
 	      	<li><a href="#">Cliente</a></li>
 	      	<li><a href="/seguro/listar">Seguro</a></li>
-	      	<li><a href="#">Seguro veicular</a></li>
+	      	<li><a href="seguro/veiculo/listar">Seguro veicular</a></li>
 	      	<li><a href="/seguro/domicilio/listar">Seguro domiciliar</a></li>
-	      	<li><a href="#">Seguro de vida</a></li>
+	      	<li><a href="/seguro/vida/listar">Seguro de vida</a></li>
 	      	<li><a href="#">Orçamento</a></li>
 	      </c:if>
 	    </ul>

@@ -15,7 +15,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">
 		
-		  <h2>Cadastramentos de Seguros</h2>
+		  <h2>Cadastramentos de Usuario</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
 				  		<strong>Sucesso!</strong> ${msg}

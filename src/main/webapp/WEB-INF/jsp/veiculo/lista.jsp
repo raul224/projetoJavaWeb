@@ -14,14 +14,14 @@
 <body>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<div class="container">	
-		  <h2>Cadastramentos de Seguros</h2>
+		  <h2>Cadastro de seguros de veiculos</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
 			  
-			<form action="/seguro" method="get">
+			<form action="/seguro/veiculo" method="get">
 				<button type="submit" class="btn btn-gray">Novo</button>
 			</form>
 			
@@ -34,6 +34,9 @@
 			        <th>Data fim</th>
 			        <th>Valor contrato</th>
 			        <th>Valor indenização</th>
+					<th>Placa do veiculo</th>
+					<th>CRLV do veiculo</th>
+					<th>Tipo do veiculo</th>
 			        <th>Usuário</th>
 			      </tr>
 			    </thead>
@@ -46,15 +49,15 @@
 			        <td>${a.dataFim}</td>
 			        <td>${a.valorContrato}</td>
 			        <td>${a.valorIndenizacao}</td>
+					<td>${a.placa}</td>
+					<td>${a.crlv}</td>
+					<td>${a.tipoVeiculo}</td>
 			        <td>${a.usuario.nome}</td>
-			        <td><a href="/seguro/${a.numeroContrato}/excluir">Excluir</a></td>
+			        <td><a href="/seguro/veiculo/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>
 			  </table>
-		
-	
-
 	</div>
 </body>
 </html>

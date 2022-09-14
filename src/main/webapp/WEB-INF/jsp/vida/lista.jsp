@@ -14,14 +14,14 @@
 <body>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<div class="container">	
-		  <h2>Cadastramentos de Seguros</h2>
+		  <h2>Cadastro de seguros de vida</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
 			  
-			<form action="/seguro" method="get">
+			<form action="/seguro/vida" method="get">
 				<button type="submit" class="btn btn-gray">Novo</button>
 			</form>
 			
@@ -35,10 +35,12 @@
 			        <th>Valor contrato</th>
 			        <th>Valor indenização</th>
 			        <th>Usuário</th>
+					<th>CPF cliente</th>
+					<th>Ano nascimento</th>
+					<th>CPF beneficiario</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			    
 			    <c:forEach var="a" items="${listagem}">
 			      <tr>
 			        <td>${a.numeroContrato}</td>
@@ -46,15 +48,15 @@
 			        <td>${a.dataFim}</td>
 			        <td>${a.valorContrato}</td>
 			        <td>${a.valorIndenizacao}</td>
-			        <td>${a.usuario.nome}</td>
-			        <td><a href="/seguro/${a.numeroContrato}/excluir">Excluir</a></td>
+			        <td>${a.cpf}</td>
+					<td>${a.anoNascimento}</td>
+					<td>${a.cpfBeneficiario}</td>
+					<td>${a.usuario.nome}</td>
+			        <td><a href="/seguro/vida/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>
 			  </table>
-		
-	
-
 	</div>
 </body>
 </html>

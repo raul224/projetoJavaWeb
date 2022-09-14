@@ -5,52 +5,51 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<meta charset="ISO-8859-1">
-<title>Cadastro seguros</title>
+<title>Cadastro seguro de veiculo</title>
 </head>
 <body>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<div class="container">
-		<form action="/seguro/incluir" method="post">
-		
+		<form action="/seguro/veiculo/incluir" method="post">
 			<div class="form-group">
-			
-			<label>Valor do contrato:</label>
-			
-			<input type="number" name="valorContrato" class="form-control">
+				<label>Valor do contrato:</label>
+				<input type="number" name="valorContrato" class="form-control">
 			</div>
-			
 			<hr>
-			
 			<div class="form-group">
-			
-			<label>Valor indenização:</label>
-			
-			<input type="number" name="valorIndenizacao" class="form-control">
+				<label>Valor indenização:</label>
+				<input type="number" name="valorIndenizacao" class="form-control">
 			</div>
-			
 			<hr>
-			
 			<div class="form-group">
-			
-			<label>Data de assinatura do contrato:</label>
-			
-			<input type="date" name="dataAssinatura" class="form-control">
+				<label>Data de assinatura do contrato:</label>
+				<input type="date" name="dataAssinatura" class="form-control">
 			</div>
-			
 			<hr>
-			
 			<div class="form-group">
-			
-			<label>Data final do contrato:</label>
-			
-			<input type="date" name="dataFim" class="form-control">
+				<label>Data final do contrato:</label>
+				<input type="date" name="dataFim" class="form-control">
 			</div>
-			
 			<hr>
-			
+			<div class="form-group">
+				<label>Placa do veiculo:</label>
+				<input type="text" name="placa" class="form-control">
+			</div>
+			<hr>
+			<div class="form-group">
+				<label>CRLV do veiculo:</label>
+				<input type="text" name="crlv" class="form-control">
+			</div>
+			<hr>
+			<div class="form-group">
+				<label>Tipo do veiculo:</label>
+				<select name="tipoVeiculo">
+					<option value="Carro" selected>Carro</option>
+					<option value="Moto">Moto</option>
+				</select>
+			</div>
+			<hr>
 			<button type="submit" class="btn btn-gray">Cadastrar</button>
-
-
 		</form>
 	</div>
 </body>

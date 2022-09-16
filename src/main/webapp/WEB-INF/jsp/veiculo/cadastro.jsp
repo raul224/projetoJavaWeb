@@ -8,7 +8,7 @@
 <title>Cadastro seguro de veiculo</title>
 </head>
 <body>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">
 		<form action="/seguro/veiculo/incluir" method="post">
 			<div class="form-group">

@@ -12,20 +12,16 @@
 <title>App - Lista</title>
 </head>
 <body>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">	
-		  <h2>Cadastramentos de Seguros</h2>
+		  <h2>Seguros</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
-			  
-			<form action="/seguro" method="get">
-				<button type="submit" class="btn btn-gray">Novo</button>
-			</form>
-			
-			  <p>Listagem de Contratos Cadastrados:  ${listagem.size()}</p>        
+
+			  <p>Contratos cadastrados:  ${listagem.size()}</p>
 			  <table class="table table-striped">
 			    <thead>
 			      <tr>

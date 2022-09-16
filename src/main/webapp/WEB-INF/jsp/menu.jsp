@@ -12,12 +12,12 @@
 			<c:if test="${user.admin}">
 			 <li><a href="usuario/listar">Usuário</a></li>
 			</c:if>
-	      	<li><a href="#">Cliente</a></li>
+	      	<li><a href="/cliente/listar">Cliente</a></li>
 	      	<li><a href="/seguro/listar">Seguro</a></li>
-	      	<li><a href="seguro/veiculo/listar">Seguro veicular</a></li>
+	      	<li><a href="/seguro/veiculo/listar">Seguro veicular</a></li>
 	      	<li><a href="/seguro/domicilio/listar">Seguro domiciliar</a></li>
 	      	<li><a href="/seguro/vida/listar">Seguro de vida</a></li>
-	      	<li><a href="#">Orçamento</a></li>
+	      	<li><a href="/orcamento/listar">Orçamento</a></li>
 	      </c:if>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">

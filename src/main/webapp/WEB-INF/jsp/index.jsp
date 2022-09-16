@@ -10,9 +10,7 @@
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">
-		<h3>Bem vindo, ${user.nome}</h3>
-		
-		<h5>Cadastro de <a href="/seguro/listar">Seguro</a></h5>
+		<h3>Bem vindo ${user.nome}</h3>
 	</div>
 </body>
 </html>

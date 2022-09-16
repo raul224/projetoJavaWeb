@@ -12,7 +12,7 @@
 <title>App - Lista</title>
 </head>
 <body>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">	
 		  <h2>Cadastro de seguros de veiculos</h2>
 		  		<c:if test="${not empty msg}">
@@ -38,6 +38,7 @@
 					<th>CRLV do veiculo</th>
 					<th>Tipo do veiculo</th>
 			        <th>Usuário</th>
+					<th></th>
 			      </tr>
 			    </thead>
 			    <tbody>

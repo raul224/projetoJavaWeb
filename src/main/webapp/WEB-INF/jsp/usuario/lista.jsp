@@ -31,6 +31,7 @@
 			        <th>E-mail</th>
 			        <th>Senha</th>
 			        <th>Admin</th>
+					<th></th>
 			      </tr>
 			    </thead>
 			    <tbody>

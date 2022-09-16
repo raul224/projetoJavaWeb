@@ -12,7 +12,7 @@
 <title>App - Lista</title>
 </head>
 <body>
-	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	<div class="container">	
 		  <h2>Cadastro de seguros domiciliar</h2>
 		  		<c:if test="${not empty msg}">
@@ -34,11 +34,11 @@
 			        <th>Data fim</th>
 			        <th>Valor contrato</th>
 			        <th>Valor indenização</th>
-			        <th>Usuário</th>
 					<th>CEP</th>
 					<th>Bairro</th>
 					<th>Logradouro</th>
 					<th>Complemento</th>
+					<th>Usuário</th>
 					<td></td>
 			      </tr>
 			    </thead>

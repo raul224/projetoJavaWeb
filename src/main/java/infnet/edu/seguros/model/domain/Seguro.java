@@ -1,6 +1,7 @@
 package infnet.edu.seguros.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -19,6 +20,8 @@ public abstract class Seguro {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
+	@ManyToMany(mappedBy = "seguros")
+	private List<Orcamento> orcamentos;
 	
 	public Seguro() {
 		// TODO Auto-generated constructor stub
@@ -31,62 +34,68 @@ public abstract class Seguro {
 		this.valorIndenizacao = valorIndenizacao;
 		this.ativo = true;
 	}
-	
+
 	public Integer getNumeroContrato() {
-        return numeroContrato;
-    }
-
-    public LocalDateTime getDataAssinatura() {
-        return dataAssinatura;
-    }
-
-    public LocalDateTime getDataFim() {
-        return dataFim;
-    }
-
-    public float getValorContrato() {
-        return valorContrato;
-    }
-
-    public float getValorIndenizacao() {
-        return valorIndenizacao;
-    }
-    
-    public Usuario getUsuario() {
-		return usuario;
+		return numeroContrato;
 	}
 
-    public boolean isAtivo() {
-        return ativo;
-    }
-    
-    
-    
-    public void setNumeroContrato(Integer numeroContrato) {
+	public void setNumeroContrato(Integer numeroContrato) {
 		this.numeroContrato = numeroContrato;
+	}
+
+	public LocalDateTime getDataAssinatura() {
+		return dataAssinatura;
 	}
 
 	public void setDataAssinatura(LocalDateTime dataAssinatura) {
 		this.dataAssinatura = dataAssinatura;
 	}
 
+	public LocalDateTime getDataFim() {
+		return dataFim;
+	}
+
 	public void setDataFim(LocalDateTime dataFim) {
 		this.dataFim = dataFim;
+	}
+
+	public float getValorContrato() {
+		return valorContrato;
 	}
 
 	public void setValorContrato(float valorContrato) {
 		this.valorContrato = valorContrato;
 	}
 
+	public float getValorIndenizacao() {
+		return valorIndenizacao;
+	}
+
 	public void setValorIndenizacao(float valorIndenizacao) {
 		this.valorIndenizacao = valorIndenizacao;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
 	}
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public List<Orcamento> getOrcamentos() {
+		return orcamentos;
+	}
+
+	public void setOrcamentos(List<Orcamento> orcamentos) {
+		this.orcamentos = orcamentos;
 	}
 }

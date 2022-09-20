@@ -4,6 +4,7 @@ import infnet.edu.seguros.model.domain.SeguroVida;
 import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.repository.SeguroVidaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class SeguroVidaService {
     }
 
     public List<SeguroVida> GetAllByUsu(Usuario usu){
-        return (List<SeguroVida>) repository.ObterLista(usu.getId());
+        return (List<SeguroVida>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "anoNascimento"));
     }
 
     public void Excluir(Integer id) {

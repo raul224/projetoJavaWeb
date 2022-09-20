@@ -17,6 +17,8 @@ public class SeguroVeiculoController {
     private String mensagem;
     @Autowired
     private SeguroVeiculoService service;
+    @Autowired
+    private SeguroController seguroController;
 
     @GetMapping(value = "/seguro/veiculo")
     public String TelaCadastro() {
@@ -44,8 +46,8 @@ public class SeguroVeiculoController {
 
     @GetMapping(value = "seguro/veiculo/{id}/excluir")
     public String Excluir(@PathVariable Integer id) {
-        service.Excluir(id);
-        mensagem = "Excluído com sucesso";
+        seguroController.Exclusao(id);
+        mensagem = "Seguro "+ id + " excluido com sucesso";
         return "redirect:/seguro/veiculo/listar";
     }
 }

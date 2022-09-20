@@ -26,6 +26,10 @@ public class SeguroService{
 	public List<Seguro> GetAllByUsu(Usuario usu){
 		return (List<Seguro>) seguroRepository.ObterLista(usu.getId());
 	}
+
+	public Seguro GetById(Integer id){
+		return seguroRepository.findById(id).orElse(null);
+	}
 	
 	public void Excluir(Integer id) {
 		seguroRepository.deleteById(id);

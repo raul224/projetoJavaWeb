@@ -16,6 +16,8 @@ public class SeguroDomicilioController {
     @Autowired
     private SeguroDomicilioService service;
     @Autowired
+    private SeguroController seguroController;
+    @Autowired
     private EnderecoService enderecoService;
 
     @GetMapping(value = "/seguro/domicilio")
@@ -44,8 +46,8 @@ public class SeguroDomicilioController {
 
     @GetMapping(value = "seguro/domicilio/{id}/excluir")
     public String Excluir(@PathVariable Integer id) {
-        service.Excluir(id);
-        mensagem = "Excluído com sucesso";
+        seguroController.Exclusao(id);
+        mensagem = "Seguro "+ id + " excluido com sucesso";
         return "redirect:/seguro/domicilio/listar";
     }
 

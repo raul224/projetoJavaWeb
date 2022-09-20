@@ -20,7 +20,6 @@
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
-
 			  <p>Contratos cadastrados:  ${listagem.size()}</p>
 			  <table class="table table-striped">
 			    <thead>
@@ -48,9 +47,6 @@
 			      </c:forEach>
 			    </tbody>
 			  </table>
-		
-	
-
 	</div>
 </body>
 </html>

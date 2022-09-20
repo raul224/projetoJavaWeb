@@ -1,6 +1,7 @@
 package infnet.edu.seguros.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import infnet.edu.seguros.model.domain.Usuario;
@@ -28,6 +29,6 @@ public class UsuarioService {
 	}
 
 	public List<Usuario> listar(){
-		return (List<Usuario>) usuRepository.findAll();
+		return (List<Usuario>) usuRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}
 }

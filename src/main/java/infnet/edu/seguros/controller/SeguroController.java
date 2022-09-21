@@ -35,7 +35,7 @@ public class SeguroController {
 		return "redirect:/seguro/listar";
 	}
 	
-	@GetMapping(value = "seguro/{id}/excluir")
+	@GetMapping(value = "/seguro/{id}/excluir")
 	public String Excluir(@PathVariable Integer id) {
 		service.Excluir(id);
 		mensagem = "Seguro " + id + " foi excluido com sucesso";

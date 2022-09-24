@@ -13,43 +13,40 @@
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
-	<div class="container">
-		
-		  <h2>Cadastramentos de Usuario</h2>
+	<div class="container">	
+		  <h2>Cadastro de orçamentos</h2>
 		  		<c:if test="${not empty msg}">
 		  			<div class="alert alert-success">
 				  		<strong>Sucesso!</strong> ${msg}
 					</div>
 		  		</c:if>
+			  
+			<form action="/orcamento" method="get">
+				<button type="submit" class="btn btn-gray">Novo</button>
+			</form>
 			
-			  <p>Listagem de Usuarios Cadastrados:  ${listagem.size()}</p>
+			  <p>Listagem de orçamentos:  ${listagem.size()}</p>
 			  <table class="table table-striped">
 			    <thead>
 			      <tr>
 			        <th>Id</th>
-			        <th>Nome</th>
-			        <th>E-mail</th>
-			        <th>Senha</th>
-			        <th>Admin</th>
-					<th>Seguros</th>
-					<th>Clientes</th>
-					<th>Orçamentos</th>
+			        <th>Data de emissao</th>
+			        <th>Nome do cliente</th>
+			        <th>Quantidade de seguros</th>
+			        <th>Usuario responsável</th>
 					<th></th>
 			      </tr>
 			    </thead>
 			    <tbody>
 			    
-			    <c:forEach var="u" items="${listagem}">
+			    <c:forEach var="o" items="${listagem}">
 			      <tr>
-			        <td>${u.id}</td>
-			        <td>${u.nome}</td>
-			        <td>${u.email}</td>
-			        <td>${u.senha}</td>
-			        <td>${u.admin}</td>
-					<td>${u.seguros.size()}</td>
-					<td>${u.clientes.size()}</td>
-					<td>${u.orcamentos.size()}</td>
-			        <td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
+			        <td>${o.id}</td>
+			        <td>${o.dataEmissao}</td>
+			        <td>${o.cliente.nome}</td>
+			        <td>${o.seguros}</td>
+			        <td>${o.usuario.nome}</td>
+			        <td><a href="/orcamento/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>

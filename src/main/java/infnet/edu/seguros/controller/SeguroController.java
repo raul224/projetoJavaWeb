@@ -37,8 +37,12 @@ public class SeguroController {
 	
 	@GetMapping(value = "/seguro/{id}/excluir")
 	public String Excluir(@PathVariable Integer id) {
-		service.Excluir(id);
-		mensagem = "Seguro " + id + " foi excluido com sucesso";
+		try {
+			service.Excluir(id);
+			mensagem = "Seguro " + id + " foi excluido com sucesso";
+		} catch (Exception e){
+			mensagem = "Não é possível excluir esse seguro por estar associado a um orçamento";
+		}
 		return "redirect:/seguro/listar";
 	}
 

@@ -43,8 +43,12 @@ public class ClienteController {
 
     @GetMapping(value = "/cliente/{id}/excluir")
     public String Excluir(@PathVariable Integer id) {
-        service.Excluir(id);
-        mensagem = "Excluído com sucesso";
+        try {
+            service.Excluir(id);
+            mensagem = "Excluído com sucesso";
+        } catch (Exception e){
+            mensagem = "Não é possível excluir esse cliente por estar associado a um orçamento";
+        }
         return "redirect:/seguro/listar";
     }
 }

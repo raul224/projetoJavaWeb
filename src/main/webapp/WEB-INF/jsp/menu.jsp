@@ -19,7 +19,7 @@
 	      	<li><a href="/seguro/veiculo/listar">Seguro veicular</a></li>
 	      	<li><a href="/seguro/domicilio/listar">Seguro domiciliar</a></li>
 	      	<li><a href="/seguro/vida/listar">Seguro de vida</a></li>
-	      	<li><a href="/orcamento/listar">Orçamento</a></li>
+	      	<li><a href="/orcamento/listar">Orçamentos</a></li>
 	      </c:if>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">

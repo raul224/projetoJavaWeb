@@ -15,23 +15,23 @@ public class SeguroService{
 	@Autowired
 	private SeguroRepository seguroRepository;
 	
-	public void IncluirSeguro(Seguro seguro) {
+	public void incluir(Seguro seguro) {
 		seguroRepository.save(seguro);
 	}
 	
-	public List<Seguro> GetAll(){
+	public List<Seguro> getAll(){
 		return (List<Seguro>) seguroRepository.findAll();
 	}
 	
-	public List<Seguro> GetAllByUsu(Usuario usu){
+	public List<Seguro> getAllByUsu(Usuario usu){
 		return (List<Seguro>) seguroRepository.ObterLista(usu.getId());
 	}
 
-	public Seguro GetById(Integer id){
+	public Seguro getById(Integer id){
 		return seguroRepository.findById(id).orElse(null);
 	}
 	
-	public void Excluir(Integer id) {
+	public void excluir(Integer id) {
 		seguroRepository.deleteById(id);
 	}
 	

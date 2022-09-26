@@ -27,11 +27,11 @@ public class SeguroDomicilioService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<SeguroDomicilio> GetAllByUsu(Usuario usu){
+    public List<SeguroDomicilio> getAllByUsu(Usuario usu){
         return (List<SeguroDomicilio>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "metragemImovel"));
     }
 
-    public void Excluir(Integer id) {
+    public void excluir(Integer id) {
         repository.deleteById(id);
     }
 }

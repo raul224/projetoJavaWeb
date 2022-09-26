@@ -26,9 +26,9 @@ public class ClienteController {
     public String ListarSeguros(Model model,  @SessionAttribute("user") Usuario usu){
         mensagem = "Listagem realizada";
         if(usu.admin){
-            model.addAttribute("listagem", service.GetAll());
+            model.addAttribute("listagem", service.getAll());
         } else {
-            model.addAttribute("listagem", service.GetAllByUsu(usu));
+            model.addAttribute("listagem", service.getAllByUsu(usu));
         }
         model.addAttribute("msg", mensagem);
         return "cliente/lista";

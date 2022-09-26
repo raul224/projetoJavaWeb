@@ -27,11 +27,11 @@ public class OrcamentoService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Orcamento> GetAllByUsu(Usuario usu){
+    public List<Orcamento> getAllByUsu(Usuario usu){
         return (List<Orcamento>) repository.obterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "dataEmissao"));
     }
 
-    public void Excluir(Integer id) {
+    public void excluir(Integer id) {
         repository.deleteById(id);
     }
 }

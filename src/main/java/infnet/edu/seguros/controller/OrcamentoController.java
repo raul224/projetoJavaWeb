@@ -27,11 +27,11 @@ public class OrcamentoController {
     @GetMapping(value = "/orcamento")
     public String TelaCadastro(Model model, @SessionAttribute("user") Usuario usu) {
         if(usu.admin){
-            model.addAttribute("clientes", clienteService.GetAll());
-            model.addAttribute("seguros", seguroService.GetAll());
+            model.addAttribute("clientes", clienteService.getAll());
+            model.addAttribute("seguros", seguroService.getAll());
         } else {
-            model.addAttribute("clientes", clienteService.GetAllByUsu(usu));
-            model.addAttribute("seguros", seguroService.GetAllByUsu(usu));
+            model.addAttribute("clientes", clienteService.getAllByUsu(usu));
+            model.addAttribute("seguros", seguroService.getAllByUsu(usu));
         }
         return "orcamento/cadastro";
     }
@@ -42,7 +42,7 @@ public class OrcamentoController {
         if(usu.admin){
             model.addAttribute("listagem", service.obterLista());
         } else {
-            model.addAttribute("listagem", service.GetAllByUsu(usu));
+            model.addAttribute("listagem", service.getAllByUsu(usu));
         }
         model.addAttribute("msg", mensagem);
         return "orcamento/lista";
@@ -58,7 +58,7 @@ public class OrcamentoController {
 
     @GetMapping(value = "/orcamento/{id}/excluir")
     public String Excluir(@PathVariable Integer id) {
-        service.Excluir(id);
+        service.excluir(id);
         mensagem = "Orcamento "+ id + " excluido com sucesso";
         return "redirect:/orcamento/listar";
     }

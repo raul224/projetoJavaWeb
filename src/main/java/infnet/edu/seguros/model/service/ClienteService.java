@@ -15,19 +15,19 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
-    public void IncluirSeguro(Cliente cliente) {
+    public void incluir(Cliente cliente) {
         repository.save(cliente);
     }
 
-    public List<Cliente> GetAll(){
+    public List<Cliente> getAll(){
         return (List<Cliente>) repository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
     }
 
-    public List<Cliente> GetAllByUsu(Usuario usu){
+    public List<Cliente> getAllByUsu(Usuario usu){
         return (List<Cliente>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
-    public void Excluir(Integer id) {
+    public void excluir(Integer id) {
         repository.deleteById(id);
     }
 }

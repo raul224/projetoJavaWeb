@@ -26,11 +26,11 @@ public class SeguroVidaService {
         return repository.findById(id).orElse(null);
     }
 
-    public List<SeguroVida> GetAllByUsu(Usuario usu){
+    public List<SeguroVida> getAllByUsu(Usuario usu){
         return (List<SeguroVida>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "anoNascimento"));
     }
 
-    public void Excluir(Integer id) {
+    public void excluir(Integer id) {
         repository.deleteById(id);
     }
 }

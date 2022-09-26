@@ -31,7 +31,7 @@ public class SeguroDomicilioController {
         if(usu.admin){
             model.addAttribute("listagem", service.obterLista());
         } else {
-            model.addAttribute("listagem", service.GetAllByUsu(usu));
+            model.addAttribute("listagem", service.getAllByUsu(usu));
         }
         model.addAttribute("msg", mensagem);
         return "domicilio/lista";

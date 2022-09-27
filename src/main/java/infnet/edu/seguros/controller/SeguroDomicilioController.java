@@ -6,9 +6,12 @@ import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.service.EnderecoService;
 import infnet.edu.seguros.model.service.SeguroDomicilioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @Controller
 public class SeguroDomicilioController {
@@ -38,8 +41,14 @@ public class SeguroDomicilioController {
     }
 
     @PostMapping(value = "/seguro/domicilio/incluir")
-    public String IncluirSeguro(SeguroDomicilio seguro, @SessionAttribute("user") Usuario usu) {
+    public String IncluirSeguro(
+            SeguroDomicilio seguro,
+            @SessionAttribute("user") Usuario usu,
+            @RequestParam("dataAssinatura") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataAssinatura,
+            @RequestParam("dataFim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim) {
         seguro.setUsuario(usu);
+        seguro.setDataAssinatura(dataAssinatura);
+        seguro.setDataFim(dataFim);
         service.incluir(seguro);
         return "redirect:/seguro/domicilio/listar";
     }

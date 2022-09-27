@@ -9,10 +9,12 @@ import infnet.edu.seguros.model.service.SeguroDomicilioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Order(3)
 @Component
 public class SeguroDomicilioLoader implements ApplicationRunner {
     @Autowired
@@ -35,7 +37,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
         endereco.setUf("uf");
 
         SeguroDomicilio seguro = new SeguroDomicilio();
-        seguro.setNumeroContrato(991);
+        seguro.setNumeroContrato(1);
         seguro.setCpfProprietario("18593655742");
         seguro.setMetragemImovel(2000);
         seguro.setEndereco(endereco);
@@ -57,7 +59,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
         endereco.setUf("uf adm");
 
         SeguroDomicilio seguroAdm = new SeguroDomicilio();
-        seguro.setNumeroContrato(992);
+        seguro.setNumeroContrato(2);
         seguroAdm.setCpfProprietario("72720090872");
         seguroAdm.setMetragemImovel(3000);
         seguroAdm.setEndereco(enderecoAdm);
@@ -79,7 +81,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
         enderecoN.setUf("uf N");
 
         SeguroDomicilio seguroS = new SeguroDomicilio();
-        seguroS.setNumeroContrato(999);
+        seguroS.setNumeroContrato(3);
         seguroS.setCpfProprietario("87119390456");
         seguroS.setMetragemImovel(1000);
         seguroS.setEndereco(enderecoN);
@@ -92,7 +94,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
 
         service.incluir(seguroS);
 
-        seguro = service.obterPorId(991);
+        seguro = service.obterPorId(1);
 
         System.out.println("Inclusão do primeiro contrato: " + seguro.getNumeroContrato());
 
@@ -105,7 +107,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
             );
         }
 
-        service.excluir(992);
+        service.excluir(2);
 
         System.out.println("### Seguros do user:");
         for(SeguroDomicilio b : service.getAllByUsu(user)) {
@@ -126,7 +128,7 @@ public class SeguroDomicilioLoader implements ApplicationRunner {
         }
 
         try {
-            seguro = service.obterPorId(992);
+            seguro = service.obterPorId(2);
             System.out.println("Contrato nao excluido: " + seguro.getNumeroContrato());
         } catch (NullPointerException e) {
             System.err.println("[ERRO] " + e.getMessage());

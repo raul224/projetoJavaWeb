@@ -28,6 +28,10 @@ public class UsuarioService {
 		usuRepository.deleteById(id);
 	}
 
+	public Usuario getById(Integer id){
+		return usuRepository.findById(id).orElse(null);
+	}
+
 	public List<Usuario> listar(){
 		return (List<Usuario>) usuRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}

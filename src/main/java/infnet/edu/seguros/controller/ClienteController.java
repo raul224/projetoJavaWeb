@@ -6,10 +6,7 @@ import infnet.edu.seguros.model.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ClienteController {
@@ -37,14 +34,14 @@ public class ClienteController {
     @PostMapping(value = "/cliente/incluir")
     public String IncluirSeguro(Cliente cliente, @SessionAttribute("user") Usuario usu) {
         cliente.setUsuario(usu);
-        service.IncluirSeguro(cliente);
+        service.incluir(cliente);
         return "redirect:/seguro/listar";
     }
 
     @GetMapping(value = "/cliente/{id}/excluir")
     public String Excluir(@PathVariable Integer id) {
         try {
-            service.Excluir(id);
+            service.excluir(id);
             mensagem = "Excluído com sucesso";
         } catch (Exception e){
             mensagem = "Não é possível excluir esse cliente por estar associado a um orçamento";

@@ -23,7 +23,7 @@ public class SeguroController {
 	@GetMapping(value = "/seguro/listar")
 	public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
 		mensagem = "Listagem realizada";
-		model.addAttribute("listagem", service.GetAllByUsu(usu));
+		model.addAttribute("listagem", service.getAllByUsu(usu));
 		model.addAttribute("msg", mensagem);
 		return "seguro/lista";
 	}
@@ -31,14 +31,14 @@ public class SeguroController {
 	@PostMapping(value = "/seguro/incluir")
 	public String IncluirSeguro(Seguro seguro, @SessionAttribute("user") Usuario usu) {
 		seguro.setUsuario(usu);
-		service.IncluirSeguro(seguro);
+		service.incluir(seguro);
 		return "redirect:/seguro/listar";
 	}
 	
 	@GetMapping(value = "/seguro/{id}/excluir")
 	public String Excluir(@PathVariable Integer id) {
 		try {
-			service.Excluir(id);
+			service.excluir(id);
 			mensagem = "Seguro " + id + " foi excluido com sucesso";
 		} catch (Exception e){
 			mensagem = "Não é possível excluir esse seguro por estar associado a um orçamento";
@@ -47,6 +47,6 @@ public class SeguroController {
 	}
 
 	public void Exclusao(Integer id){
-		service.Excluir(id);
+		service.excluir(id);
 	}
 }

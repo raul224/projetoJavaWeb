@@ -7,10 +7,12 @@ import infnet.edu.seguros.model.service.SeguroVidaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Order(5)
 @Component
 public class SeguroVidaLoader implements ApplicationRunner {
     @Autowired
@@ -25,7 +27,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
         user.setId(2);
 
         SeguroVida seguro = new SeguroVida();
-        seguro.setNumeroContrato(991);
+        seguro.setNumeroContrato(7);
         seguro.setCpf("18593655742");
         seguro.setAnoNascimento(1999);
         seguro.setCpfBeneficiario("18222720767");
@@ -39,7 +41,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
         service.incluir(seguro);
 
         SeguroVida seguroAdm = new SeguroVida();
-        seguro.setNumeroContrato(992);
+        seguro.setNumeroContrato(8);
         seguroAdm.setCpf("72720014028");
         seguroAdm.setAnoNascimento(1986);
         seguroAdm.setCpfBeneficiario("54437252039");
@@ -53,7 +55,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
         service.incluir(seguroAdm);
 
         SeguroVida seguroS = new SeguroVida();
-        seguroS.setNumeroContrato(999);
+        seguroS.setNumeroContrato(9);
         seguroS.setCpf("87119335006");
         seguroS.setAnoNascimento(1997);
         seguroS.setCpfBeneficiario("76219566076");
@@ -66,7 +68,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
 
         service.incluir(seguroS);
 
-        seguro = service.obterPorId(991);
+        seguro = service.obterPorId(7);
 
         System.out.println("Inclusão do primeiro contrato: " + seguro.getNumeroContrato());
 
@@ -79,7 +81,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
             );
         }
 
-        service.excluir(992);
+        service.excluir(8);
 
         System.out.println("### Seguros do user:");
         for(SeguroVida b : service.getAllByUsu(user)) {
@@ -100,7 +102,7 @@ public class SeguroVidaLoader implements ApplicationRunner {
         }
 
         try {
-            seguro = service.obterPorId(992);
+            seguro = service.obterPorId(8);
             System.out.println("Contrato nao excluido: " + seguro.getNumeroContrato());
         } catch (NullPointerException e) {
             System.err.println("[ERRO] " + e.getMessage());

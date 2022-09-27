@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.service.UsuarioService;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class UsuarioController {
 	}
 
 	@GetMapping(value = "/usuario/listar")
-	public String TelaLista(Model model) {
+	public String TelaLista(Model model, @SessionAttribute("user") Usuario usu) {
 		List<Usuario> listagem = service.listar();
 		model.addAttribute("listagem", listagem);
+		model.addAttribute("user", usu);
 		return "usuario/lista";
 	}
 	

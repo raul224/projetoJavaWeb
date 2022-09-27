@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,11 +43,12 @@
 			    <c:forEach var="o" items="${listagem}">
 			      <tr>
 			        <td>${o.id}</td>
-			        <td>${o.dataEmissao}</td>
+			        <td><fmt:parseDate value="${o.dataEmissao}" pattern="yyyy-MM-dd" var="dataFormat" type="date"/>
+						<fmt:formatDate pattern="dd/MM/yyyy" value="${dataFormat}"/></td>
 			        <td>${o.cliente.nome}</td>
 			        <td>${o.seguros.size()}</td>
 			        <td>${o.usuario.nome}</td>
-			        <td><a href="/orcamento/${a.numeroContrato}/excluir">Excluir</a></td>
+			        <td><a href="/orcamento/${o.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>

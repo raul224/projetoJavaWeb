@@ -49,7 +49,13 @@
 					<td>${u.seguros.size()}</td>
 					<td>${u.clientes.size()}</td>
 					<td>${u.orcamentos.size()}</td>
-			        <td><a href="/usuario/${u.id}/excluir">Excluir</a></td>
+					<td>
+						<c:choose>
+							<c:when test="${user.id != u.id}">
+								<a href="/usuario/${u.id}/excluir">Excluir</a>
+							</c:when>
+						</c:choose>
+					</td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>

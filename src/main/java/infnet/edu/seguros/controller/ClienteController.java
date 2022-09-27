@@ -16,7 +16,7 @@ public class ClienteController {
 
     @GetMapping(value = "/cliente")
     public String TelaCadastro() {
-        return "seguro/cadastro";
+        return "cliente/cadastro";
     }
 
     @GetMapping(value = "/cliente/listar")
@@ -35,7 +35,7 @@ public class ClienteController {
     public String IncluirSeguro(Cliente cliente, @SessionAttribute("user") Usuario usu) {
         cliente.setUsuario(usu);
         service.incluir(cliente);
-        return "redirect:/seguro/listar";
+        return "redirect:/cliente/listar";
     }
 
     @GetMapping(value = "/cliente/{id}/excluir")
@@ -46,6 +46,6 @@ public class ClienteController {
         } catch (Exception e){
             mensagem = "Não é possível excluir esse cliente por estar associado a um orçamento";
         }
-        return "redirect:/seguro/listar";
+        return "redirect:/cliente/listar";
     }
 }

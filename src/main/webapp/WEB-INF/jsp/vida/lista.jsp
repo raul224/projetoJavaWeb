@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,8 +46,10 @@
 			    <c:forEach var="a" items="${listagem}">
 			      <tr>
 			        <td>${a.numeroContrato}</td>
-			        <td>${a.dataAssinatura}</td>
-			        <td>${a.dataFim}</td>
+					<td><fmt:parseDate value="${a.dataAssinatura}" pattern="yyyy-MM-dd" var="dataFormat" type="date"/>
+					  <fmt:formatDate pattern="dd/MM/yyyy" value="${dataFormat}"/></td>
+					<td><fmt:parseDate value="${a.dataFim}" pattern="yyyy-MM-dd" var="dataFormat" type="date"/>
+					  <fmt:formatDate pattern="dd/MM/yyyy" value="${dataFormat}"/></td>
 			        <td>${a.valorContrato}</td>
 			        <td>${a.valorIndenizacao}</td>
 			        <td>${a.cpf}</td>

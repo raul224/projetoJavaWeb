@@ -61,12 +61,12 @@
 			<hr>
 			<div class="form-group">
 				<label>Data de assinatura do contrato:</label>
-				<input type="datetime-local" name="dataAssinatura" class="form-control">
+				<input type="datetime-local" name="assinatura" class="form-control">
 			</div>
 			<hr>
 			<div class="form-group">
 				<label>Data final do contrato:</label>
-				<input type="datetime-local" name="dataFim" class="form-control">
+				<input type="datetime-local" name="fim" class="form-control">
 			</div>
 			<hr>
 			<button type="submit" class="btn btn-gray">Cadastrar</button>

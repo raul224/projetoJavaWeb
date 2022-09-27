@@ -44,8 +44,8 @@ public class SeguroDomicilioController {
     public String IncluirSeguro(
             SeguroDomicilio seguro,
             @SessionAttribute("user") Usuario usu,
-            @RequestParam("dataAssinatura") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime assinatura,
-            @RequestParam("dataFim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim) {
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime assinatura,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim) {
         seguro.setUsuario(usu);
         seguro.setDataAssinatura(assinatura);
         seguro.setDataFim(fim);

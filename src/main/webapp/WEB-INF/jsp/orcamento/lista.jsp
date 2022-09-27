@@ -44,7 +44,7 @@
 			        <td>${o.id}</td>
 			        <td>${o.dataEmissao}</td>
 			        <td>${o.cliente.nome}</td>
-			        <td>${o.seguros}</td>
+			        <td>${o.seguros.size()}</td>
 			        <td>${o.usuario.nome}</td>
 			        <td><a href="/orcamento/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>

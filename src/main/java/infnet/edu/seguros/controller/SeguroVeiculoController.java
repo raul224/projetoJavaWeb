@@ -41,11 +41,11 @@ public class SeguroVeiculoController {
     public String IncluirSeguro(
             SeguroVeiculo seguro,
             @SessionAttribute("user") Usuario usu,
-            @RequestParam("dataAssinatura") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataAssinatura,
-            @RequestParam("dataFim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFim) {
+            @RequestParam("dataAssinatura") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime assinatura,
+            @RequestParam("dataFim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim) {
         seguro.setUsuario(usu);
-        seguro.setDataAssinatura(dataAssinatura);
-        seguro.setDataFim(dataFim);
+        seguro.setDataAssinatura(assinatura);
+        seguro.setDataFim(fim);
         service.incluir(seguro);
         return "redirect:/seguro/veiculo/listar";
     }

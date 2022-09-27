@@ -27,6 +27,10 @@ public class ClienteService {
         return (List<Cliente>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
+    public Cliente getById(Integer id){
+        return repository.findById(id).orElse(null);
+    }
+
     public void excluir(Integer id) {
         repository.deleteById(id);
     }

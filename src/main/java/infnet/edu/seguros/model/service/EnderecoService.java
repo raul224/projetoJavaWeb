@@ -10,9 +10,16 @@ import org.springframework.stereotype.Service;
 public class EnderecoService {
 
     @Autowired
+    private EnderecoRepository repository;
+
+    @Autowired
     private IEnderecoClient enderecoClient;
 
     public Endereco buscarCep(String cep){
         return enderecoClient.buscaCep(cep);
+    }
+
+    public void incluir(Endereco endereco){
+        repository.save(endereco);
     }
 }

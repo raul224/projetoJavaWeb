@@ -1,5 +1,6 @@
 package infnet.edu.seguros.model.repository;
 
+import infnet.edu.seguros.model.domain.Cliente;
 import infnet.edu.seguros.model.domain.SeguroVida;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
@@ -12,4 +13,6 @@ import java.util.List;
 public interface SeguroVidaRepository extends CrudRepository<SeguroVida, Integer> {
     @Query("from SeguroVida s where s.usuario.id = :idUsuario")
     List<SeguroVida> ObterLista(Integer idUsuario, Sort sort);
+
+    List<SeguroVida> findAll(Sort sort);
 }

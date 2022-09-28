@@ -43,12 +43,14 @@ public class SeguroDomicilioController {
     @PostMapping(value = "/seguro/domicilio/incluir")
     public String IncluirSeguro(
             SeguroDomicilio seguro,
+            Endereco endereco,
             @SessionAttribute("user") Usuario usu,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime assinatura,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fim) {
         seguro.setUsuario(usu);
         seguro.setDataAssinatura(assinatura);
         seguro.setDataFim(fim);
+        seguro.setEndereco(endereco);
         service.incluir(seguro);
         return "redirect:/seguro/domicilio/listar";
     }

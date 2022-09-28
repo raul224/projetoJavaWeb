@@ -5,6 +5,7 @@ import infnet.edu.seguros.model.domain.SeguroDomicilio;
 import infnet.edu.seguros.model.domain.SeguroVeiculo;
 import infnet.edu.seguros.model.domain.Usuario;
 import infnet.edu.seguros.model.service.ClienteService;
+import infnet.edu.seguros.model.service.EnderecoService;
 import infnet.edu.seguros.model.service.SeguroDomicilioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -19,6 +20,9 @@ import java.time.LocalDateTime;
 public class SeguroDomicilioLoader implements ApplicationRunner {
     @Autowired
     private SeguroDomicilioService service;
+
+    @Autowired
+    private EnderecoService enderecoService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception{

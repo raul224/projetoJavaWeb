@@ -35,10 +35,12 @@
 			        <th>Data fim</th>
 			        <th>Valor contrato</th>
 			        <th>Valor indenização</th>
+					<th>CPF proprietario</th>
+					<th>Metragem imovel</th>
 					<th>CEP</th>
 					<th>Bairro</th>
-					<th>Logradouro</th>
-					<th>Complemento</th>
+					<th>Localidade</th>
+					<th>UF</th>
 					<th>Usuário</th>
 					<td></td>
 			      </tr>
@@ -54,11 +56,13 @@
 						<fmt:formatDate pattern="dd/MM/yyyy" value="${dataFormat}"/></td>
 			        <td>${a.valorContrato}</td>
 			        <td>${a.valorIndenizacao}</td>
-			        <td>${a.usuario.nome}</td>
+					<td>${a.cpfProprietario}</td>
+					<td>${a.metragemImovel}</td>
 					<td>${a.endereco.cep}</td>
 					<td>${a.endereco.bairro}</td>
-					<td>${a.endereco.logradouro}</td>
-					<td>${a.endereco.complemento}</td>
+					<td>${a.endereco.localidade}</td>
+					<td>${a.endereco.uf}</td>
+					<td>${a.usuario.nome}</td>
 			        <td><a href="/seguro/domicilio/${a.numeroContrato}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>

@@ -69,6 +69,16 @@
 				<input type="datetime-local" name="fim" class="form-control">
 			</div>
 			<hr>
+			<div class="form-group">
+				<label>CPF proprietario:</label>
+				<input type="text" name="cpfProprietario" class="form-control">
+			</div>
+			<hr>
+			<div class="form-group">
+				<label>Metragem imovel:</label>
+				<input type="number" name="metragemImovel" class="form-control">
+			</div>
+			<hr>
 			<button type="submit" class="btn btn-gray">Cadastrar</button>
 		</form>
 	</div>

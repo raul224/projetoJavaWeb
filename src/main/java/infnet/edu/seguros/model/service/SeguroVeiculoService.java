@@ -20,7 +20,7 @@ public class SeguroVeiculoService {
     }
 
     public List<SeguroVeiculo> obterLista(){
-        return (List<SeguroVeiculo>)repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "valorContrato"));
     }
 
     public SeguroVeiculo obterPorId(Integer id){
@@ -28,7 +28,7 @@ public class SeguroVeiculoService {
     }
 
     public List<SeguroVeiculo> getAllByUsu(Usuario usu){
-        return (List<SeguroVeiculo>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "placa"));
+        return repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.DESC, "valorContrato"));
     }
 
     public void excluir(Integer id) {

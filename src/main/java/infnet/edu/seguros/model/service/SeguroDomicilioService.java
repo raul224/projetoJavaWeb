@@ -20,7 +20,7 @@ public class SeguroDomicilioService {
     }
 
     public List<SeguroDomicilio> obterLista(){
-        return (List<SeguroDomicilio>)repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.DESC, "metragemImovel"));
     }
 
     public SeguroDomicilio obterPorId(Integer id){
@@ -28,7 +28,7 @@ public class SeguroDomicilioService {
     }
 
     public List<SeguroDomicilio> getAllByUsu(Usuario usu){
-        return (List<SeguroDomicilio>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "metragemImovel"));
+        return repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.DESC, "metragemImovel"));
     }
 
     public void excluir(Integer id) {

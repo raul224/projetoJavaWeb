@@ -19,16 +19,12 @@ public class OrcamentoService {
         repository.save(orcamento);
     }
 
-    public List<Orcamento> obterLista(){
-        return (List<Orcamento>)repository.findAll();
-    }
-
     public Orcamento obterPorId(Integer id){
         return repository.findById(id).orElse(null);
     }
 
     public List<Orcamento> getAllByUsu(Usuario usu){
-        return (List<Orcamento>) repository.obterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "dataEmissao"));
+        return repository.obterLista(usu.getId(), Sort.by(Sort.Direction.DESC, "dataEmissao"));
     }
 
     public void excluir(Integer id) {

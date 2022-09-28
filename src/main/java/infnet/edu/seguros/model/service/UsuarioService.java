@@ -33,6 +33,6 @@ public class UsuarioService {
 	}
 
 	public List<Usuario> listar(){
-		return (List<Usuario>) usuRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
+		return usuRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}
 }

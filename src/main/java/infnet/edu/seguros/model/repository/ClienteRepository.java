@@ -12,6 +12,4 @@ import java.util.List;
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
     @Query("from Cliente s where s.usuario.id = :idUsuario")
     List<Cliente> ObterLista(Integer idUsuario, Sort sort);
-
-    List<Cliente> findAll(Sort sort);
 }

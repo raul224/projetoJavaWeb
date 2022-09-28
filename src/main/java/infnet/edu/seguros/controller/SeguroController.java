@@ -22,7 +22,6 @@ public class SeguroController {
 	
 	@GetMapping(value = "/seguro/listar")
 	public String ListarSeguros(Model model, @SessionAttribute("user") Usuario usu){
-		mensagem = "Listagem realizada";
 		model.addAttribute("listagem", service.getAllByUsu(usu));
 		model.addAttribute("msg", mensagem);
 		return "seguro/lista";

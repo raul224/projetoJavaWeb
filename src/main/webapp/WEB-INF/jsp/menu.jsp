@@ -8,16 +8,12 @@
 	    </div>
 	    <ul class="nav navbar-nav">
 	      <c:if test="${not empty user}">
-			<c:if test="${user.admin}">
-			 <li><a href="/usuario/listar">Usuário</a></li>
-			</c:if>
-	      	<li><a href="/cliente/listar">Cliente</a></li>
-			<c:if test="${user.admin}">
-			 <li><a href="/seguro/listar">Seguro</a></li>
-			</c:if>
-	      	<li><a href="/seguro/veiculo/listar">Seguro veicular</a></li>
-	      	<li><a href="/seguro/domicilio/listar">Seguro domiciliar</a></li>
-	      	<li><a href="/seguro/vida/listar">Seguro de vida</a></li>
+			<li><a href="/usuario/listar">Usuários</a></li>
+	      	<li><a href="/cliente/listar">Clientes</a></li>
+			<li><a href="/seguro/listar">Seguros</a></li>
+	      	<li><a href="/seguro/veiculo/listar">Seguros de veiculos</a></li>
+	      	<li><a href="/seguro/domicilio/listar">Seguros de domicilios</a></li>
+	      	<li><a href="/seguro/vida/listar">Seguros de vidas</a></li>
 	      	<li><a href="/orcamento/listar">Orçamentos</a></li>
 	      </c:if>
 	    </ul>

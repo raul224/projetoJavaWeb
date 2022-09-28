@@ -2,6 +2,8 @@ package infnet.edu.seguros.model.repository;
 
 import java.util.List;
 
+import infnet.edu.seguros.model.domain.SeguroVida;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +14,5 @@ import infnet.edu.seguros.model.domain.Seguro;
 public interface SeguroRepository extends CrudRepository<Seguro, Integer> {
 	
 	@Query("from Seguro s where s.usuario.id = :idUsuario")
-	List<Seguro> ObterLista(Integer idUsuario);
+	List<Seguro> ObterLista(Integer idUsuario, Sort sort);
 }

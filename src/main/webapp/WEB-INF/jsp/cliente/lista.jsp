@@ -16,8 +16,8 @@
 	<div class="container">	
 		  <h2>Cadastro de clientes</h2>
 		  		<c:if test="${not empty msg}">
-		  			<div class="alert alert-success">
-				  		<strong>Sucesso!</strong> ${msg}
+		  			<div class="alert alert-danger">
+				  		<strong>${msg}</strong>
 					</div>
 		  		</c:if>
 			  

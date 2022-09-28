@@ -14,6 +14,4 @@ public interface SeguroVeiculoRepository extends CrudRepository<SeguroVeiculo, I
 
     @Query("from SeguroVeiculo s where s.usuario.id = :idUsuario")
     List<SeguroVeiculo> ObterLista(Integer idUsuario, Sort sort);
-
-    List<SeguroVeiculo> findAll(Sort sort);
 }

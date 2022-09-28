@@ -17,8 +17,8 @@
 	<div class="container">	
 		  <h2>Seguros</h2>
 		  		<c:if test="${not empty msg}">
-		  			<div class="alert alert-success">
-				  		<strong>Sucesso!</strong> ${msg}
+		  			<div class="alert alert-danger">
+						<strong>${msg}</strong>
 					</div>
 		  		</c:if>
 			  <p>Contratos cadastrados:  ${listagem.size()}</p>

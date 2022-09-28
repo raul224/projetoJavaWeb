@@ -3,6 +3,7 @@ package infnet.edu.seguros.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import infnet.edu.seguros.model.domain.Seguro;
@@ -19,12 +20,8 @@ public class SeguroService{
 		seguroRepository.save(seguro);
 	}
 	
-	public List<Seguro> getAll(){
-		return (List<Seguro>) seguroRepository.findAll();
-	}
-	
 	public List<Seguro> getAllByUsu(Usuario usu){
-		return (List<Seguro>) seguroRepository.ObterLista(usu.getId());
+		return seguroRepository.ObterLista(usu.getId(), Sort.by(Sort.Direction.DESC, "valorContrato"));
 	}
 
 	public Seguro getById(Integer id){

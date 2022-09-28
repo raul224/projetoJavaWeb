@@ -26,24 +26,14 @@ public class OrcamentoController {
 
     @GetMapping(value = "/orcamento")
     public String TelaCadastro(Model model, @SessionAttribute("user") Usuario usu) {
-        if(usu.admin){
-            model.addAttribute("clientes", clienteService.getAll());
-            model.addAttribute("seguros", seguroService.getAll());
-        } else {
-            model.addAttribute("clientes", clienteService.getAllByUsu(usu));
-            model.addAttribute("seguros", seguroService.getAllByUsu(usu));
-        }
+        model.addAttribute("clientes", clienteService.getAllByUsu(usu));
+        model.addAttribute("seguros", seguroService.getAllByUsu(usu));
         return "orcamento/cadastro";
     }
 
     @GetMapping(value = "/orcamento/listar")
     public String ListarOrcamentos(Model model, @SessionAttribute("user") Usuario usu){
-        mensagem = "Listagem realizada";
-        if(usu.admin){
-            model.addAttribute("listagem", service.obterLista());
-        } else {
-            model.addAttribute("listagem", service.getAllByUsu(usu));
-        }
+        model.addAttribute("listagem", service.getAllByUsu(usu));
         model.addAttribute("msg", mensagem);
         return "orcamento/lista";
     }

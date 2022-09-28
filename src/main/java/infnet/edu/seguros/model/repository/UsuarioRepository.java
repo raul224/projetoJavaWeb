@@ -1,5 +1,6 @@
 package infnet.edu.seguros.model.repository;
 
+import infnet.edu.seguros.model.domain.Cliente;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

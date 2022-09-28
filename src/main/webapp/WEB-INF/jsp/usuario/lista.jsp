@@ -17,8 +17,8 @@
 		
 		  <h2>Cadastramentos de Usuario</h2>
 		  		<c:if test="${not empty msg}">
-		  			<div class="alert alert-success">
-				  		<strong>Sucesso!</strong> ${msg}
+		  			<div class="alert alert-danger">
+						<strong>${msg}</strong>
 					</div>
 		  		</c:if>
 			
@@ -49,13 +49,15 @@
 					<td>${u.seguros.size()}</td>
 					<td>${u.clientes.size()}</td>
 					<td>${u.orcamentos.size()}</td>
-					<td>
-						<c:choose>
-							<c:when test="${user.id != u.id}">
-								<a href="/usuario/${u.id}/excluir">Excluir</a>
-							</c:when>
-						</c:choose>
-					</td>
+					  <c:if test="${user.admin}">
+						  <td>
+							  <c:choose>
+								  <c:when test="${user.id != u.id}">
+									  <a href="/usuario/${u.id}/excluir">Excluir</a>
+								  </c:when>
+							  </c:choose>
+						  </td>
+					  </c:if>
 			      </tr>
 			      </c:forEach>
 			    </tbody>

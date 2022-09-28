@@ -18,10 +18,6 @@ public class SeguroVidaService {
         repository.save(seguro);
     }
 
-    public List<SeguroVida> obterLista(){
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "anoNascimento"));
-    }
-
     public SeguroVida obterPorId(Integer id){
         return repository.findById(id).orElse(null);
     }

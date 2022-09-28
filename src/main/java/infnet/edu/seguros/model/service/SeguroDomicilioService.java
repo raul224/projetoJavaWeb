@@ -19,10 +19,6 @@ public class SeguroDomicilioService {
         repository.save(seguro);
     }
 
-    public List<SeguroDomicilio> obterLista(){
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "metragemImovel"));
-    }
-
     public SeguroDomicilio obterPorId(Integer id){
         return repository.findById(id).orElse(null);
     }

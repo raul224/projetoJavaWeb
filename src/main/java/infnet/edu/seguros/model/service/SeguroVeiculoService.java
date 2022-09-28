@@ -19,10 +19,6 @@ public class SeguroVeiculoService {
         repository.save(seguro);
     }
 
-    public List<SeguroVeiculo> obterLista(){
-        return repository.findAll(Sort.by(Sort.Direction.DESC, "valorContrato"));
-    }
-
     public SeguroVeiculo obterPorId(Integer id){
         return repository.findById(id).orElse(null);
     }

@@ -13,6 +13,4 @@ import java.util.List;
 public interface SeguroVidaRepository extends CrudRepository<SeguroVida, Integer> {
     @Query("from SeguroVida s where s.usuario.id = :idUsuario")
     List<SeguroVida> ObterLista(Integer idUsuario, Sort sort);
-
-    List<SeguroVida> findAll(Sort sort);
 }

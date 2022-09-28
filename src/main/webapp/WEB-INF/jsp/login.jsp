@@ -13,8 +13,8 @@
 		<h2>Autenticação</h2>
 
 		<c:if test="${not empty msg}">
-			<div class="alert alert-success">
-				<strong>Atenção!</strong> ${msg}
+			<div class="alert alert-danger">
+				<strong>${msg}</strong>
 			</div>
 		</c:if>
 

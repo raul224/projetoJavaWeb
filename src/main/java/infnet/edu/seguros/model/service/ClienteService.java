@@ -19,12 +19,8 @@ public class ClienteService {
         repository.save(cliente);
     }
 
-    public List<Cliente> getAll(){
-        return (List<Cliente>) repository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
-    }
-
     public List<Cliente> getAllByUsu(Usuario usu){
-        return (List<Cliente>) repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+        return repository.ObterLista(usu.getId(), Sort.by(Sort.Direction.ASC, "nome"));
     }
 
     public Cliente getById(Integer id){

@@ -48,7 +48,7 @@
 			        <td>${o.cliente.nome}</td>
 			        <td>${o.seguros.size()}</td>
 			        <td>${o.usuario.nome}</td>
-			        <td><a href="/orcamento/${o.numeroContrato}/excluir">Excluir</a></td>
+			        <td><a href="/orcamento/${o.id}/excluir">Excluir</a></td>
 			      </tr>
 			      </c:forEach>
 			    </tbody>

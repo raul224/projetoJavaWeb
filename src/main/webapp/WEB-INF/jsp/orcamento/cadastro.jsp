@@ -30,9 +30,9 @@
 			<div class="form-group">
 				<c:if test="${not empty seguros}">
 					<label>Seguros:</label>
-					<c:forEach var="s" items="seguros">
+					<c:forEach var="s" items="${seguros}">
 						<div class="checkbox">
-							<label><input name="seguros" type="checkbox" value="${s.numeroContrato}">${s.numeroContrato}</label>
+							<label><input name="seguros" type="checkbox" value="${s.numeroContrato}">${s.numeroContrato} - ${s.dataAssinatura}</label>
 						</div>
 					</c:forEach>
 				</c:if>
